@@ -11,7 +11,6 @@ const listContacts = async(req, res) => {
 const getById = async(req, res) => {
   const { contactId } = req.params
   const result = await Contact.findById(contactId, '_id name email phone favourite')
-  // const result = await Contact.findOne({ _id: contactId }, '_id name email phone favourite')
   if (!result) {
     throw new NotFound(`Contact with id=${contactId} not found`)
   }
