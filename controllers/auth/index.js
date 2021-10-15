@@ -1,5 +1,11 @@
-const auth = require('./auth')
+const signup = require('./signup')
+const login = require('./login')
+const logout = require('./logout')
+const current = require('./current')
 
 module.exports = {
-  auth
+  signup,
+  login,
+  logout,
+  current
 }
