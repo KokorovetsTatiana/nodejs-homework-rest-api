@@ -5,6 +5,10 @@ const phoneRegexp = /^\(\d{3}\)(\s)\d{3}(-)\d{4}$/
 const emailRegexp = /\S+@\S+\.\S+$/
 
 const contactSchema = Schema({
+  owner: {
+    type: Schema.Types.ObjectId,
+    ref: 'user'
+  },
   name: {
     type: String,
     required: [true, 'Set name for connect'],
