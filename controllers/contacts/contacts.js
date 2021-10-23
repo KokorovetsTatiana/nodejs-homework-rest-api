@@ -5,7 +5,9 @@ const { Contact } = require('../../models')
 
 const listContacts = async (req, res) => {
   const { _id } = req.user
-  const result = await Contact.find({ owner: _id }, '_id name email phone favourite')
+  const { page, limit } = req.query
+  const skip = (page - 1) * limit
+  const result = await Contact.find({ owner: _id }, '_id name email phone favourite', { skip, limit: 20 })
   sendSuccessRes(res, { result })
 }
 
